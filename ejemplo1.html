@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .efecto{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>Parrafo 1</p>
+        <p>Parrafo 2</p>
+        <p>Parrafo 3</p>
+    </div>
+    <div id="caja">
+
+    </div>
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        //Igual al document.queryselector
+        // $("div p:first-child").hide(5000);
+
+        //Igual al create element y hacerle el append al body
+        // const miDiv = $("<div>Texto del div</div>");
+        // $("body").append(miDiv);
+
+        //.prepend para crear cosas antes de lo que ya hay
+
+        //Igual text content
+        $("div#caja").text("texto de la caja");
+        //Igual inner html
+        // $("div#caja").html("<h2>texto de la caja 2</h2>");
+
+        //Igual al class list
+        $("div#caja").addClass("efecto");
+
+
+
+        //Igual al DOM
+        $(document).ready(function(){
+            $("div p:first-child").hide(5000);
+        })
+
+    </script>
+</body>
+</html>
