@@ -5,13 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .efecto{
+        /* .efecto{
             color: red;
-        }
+        } */
+         div{
+            max-width: 50%;
+            border: 1px solid grey;
+            padding: 10px;
+            margin: 10px auto;
+            display: flex;
+            flex-flow: wrap;
+            justify-content: space-between;
+            p{
+                /* display: none; */
+            }
+            button{
+                color: white;
+                background-color: cadetblue;
+                border-color: cadetblue;
+            }
+         }
+        
     </style>
 </head>
 <body>
-    <div>
+    <!-- <div>
+        <h1 class="efecto">TITULO</h1>
         <p>Parrafo 1</p>
         <p>Parrafo 2</p>
         <p>Parrafo 3</p>
@@ -19,7 +38,36 @@
     <div id="caja">
 
     </div>
-    
+    <div class="efecto">
+        HOLA
+    </div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li class="efecto">6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>0</li>
+    </ul>
+    <button>BOTON</button>
+    <a href="index.html">ENLACE</a> -->
+
+    <div>
+        <span>Titulo 1</span><button>+</button>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo similique obcaecati possimus optio sed dolor beatae deleniti tempore explicabo corrupti itaque consectetur, sint voluptatem quidem delectus voluptatum quaerat illum repellat?</p>
+    </div>
+    <div>
+        <span>Titulo 2</span><button>+</button>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo similique obcaecati possimus optio sed dolor beatae deleniti tempore explicabo corrupti itaque consectetur, sint voluptatem quidem delectus voluptatum quaerat illum repellat?</p>
+    </div>
+    <div>
+        <span>Titulo 3</span><button>+</button>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo similique obcaecati possimus optio sed dolor beatae deleniti tempore explicabo corrupti itaque consectetur, sint voluptatem quidem delectus voluptatum quaerat illum repellat?</p>
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
@@ -33,20 +81,66 @@
         //.prepend para crear cosas antes de lo que ya hay
 
         //Igual text content
-        $("div#caja").text("texto de la caja");
+        // $("div#caja").text("texto de la caja");
+
         //Igual inner html
         // $("div#caja").html("<h2>texto de la caja 2</h2>");
 
         //Igual al class list
-        $("div#caja").addClass("efecto");
+        // $("div#caja").addClass("efecto");
+        
+        //Igual al remove class
+        // $("div.efecto").removeClass("efecto");
 
+        //Uso en lista o hijos
+        // $("li").first().hide();
+        // $("li").first().next().hide();
+        // $("li").last().hide();
+        // $("li:nth-child(6)").hide();
+        // $("li:nth-child(6)").prev().hide();
 
+        //Oculta toods los elemnetos del archivo en la posicion 6
+        // $(":nth-child(6)").hide();
+
+        //Filtrar por clases
+        // $("li").filter(".efecto").hide();
+
+        //Coger todos los elementos que no tengan la clase
+        // $("li").not(".efecto").hide();
+
+        //Parent
+        // $("h1").parent().addClass("efecto");
+
+        //Children
+        // $("div:first-child").children().removeClass("efecto");
+
+        //Atributos
+        // $("a").attr("href","https://www.google.com/?hl=es");
 
         //Igual al DOM
-        $(document).ready(function(){
-            $("div p:first-child").hide(5000);
-        })
+        // $(document).ready(function(){
+        //     $("div p:first-child").hide(5000);
+        // })
 
+        //Eventos 
+        // on para crearlo y el off lo elimina
+        // $("button").on("click",function(){
+        //     alert("hola");
+        // }) 
+
+        //EJEMPLO
+        $(document).ready(function(){
+            
+            $("div:first-child button").on("click",function(){
+                $("div:first-child p").show(3000);
+            })
+            $("div:nth-child(2) button").on("click",function(){
+                $("div:nth-child(2) p").show(3000);
+            })
+            $("div:nth-child(3) button").on("click",function(){
+                $("div:nth-child(3) p").show(3000);
+            })
+        })
     </script>
 </body>
 </html>
