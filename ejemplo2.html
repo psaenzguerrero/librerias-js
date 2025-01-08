@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border: 1px solid rgb(0, 0, 0);
+        }
+        ul{
+            display: flex;
+            list-style: none;
+            li{
+                margin: 5px;
+                padding: 50px 150px;
+                border: 1px solid rgb(0, 0, 0);
+                background-color: aqua;
+                color: black;
+            }
+        }
+        section{
+            margin: 10px;
+            padding: 40px;
+            border: 1px solid rgb(0, 0, 0);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>Pestaña 1</li>
+            <li>Pestaña 2</li>
+            <li>Pestaña 3</li>
+        </ul>
+        <section id="sec1">
+            <h2>Seccion 1</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid ab ipsa sint architecto, quam minima possimus impedit quae dolore nam dolorum eum natus quos! Temporibus, distinctio sapiente. Fugiat, dolor suscipit.</p>
+        </section>
+        <section id="sec2">
+            <h2>Seccion 2</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid ab ipsa sint architecto, quam minima possimus impedit quae dolore nam dolorum eum natus quos! Temporibus, distinctio sapiente. Fugiat, dolor suscipit.</p>
+        </section>
+        <section id="sec3">
+            <h2>Seccion 3</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid ab ipsa sint architecto, quam minima possimus impedit quae dolore nam dolorum eum natus quos! Temporibus, distinctio sapiente. Fugiat, dolor suscipit.</p>
+        </section>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $("ul").siblings().hide();
+        $(function () {  
+            $("li").on("click",function () {
+                var pos = $(this).text().slice(-1);
+                console.log(pos);
+                $(this).parent().siblings("section#sec"+pos).show();
+                $("section#sec"+pos).siblings("section").hide();
+                $(this).css("background", "darkblue").css("color","white");
+                $(this).siblings().css("background", "aqua").css("color","black");
+
+                // if ($(this).text().slice(-1) == "1") {
+                //     $(this).parent().siblings("section#sec1").show();
+                //     $("section#sec1").siblings("section").hide();
+                //     $(this).css("background", "darkblue").css("color","white");
+                //     $(this).siblings().css("background", "aqua").css("color","black");
+                // }
+
+                // if ($(this).text() == "Pestaña 2") {
+                //     $(this).parent().siblings("section#sec2").show();
+                //     $("section#sec2").siblings("section").hide();
+                //     $(this).css("background", "darkblue").css("color","white");
+                //     $(this).siblings().css("background", "aqua").css("color","black");
+
+                // }
+
+                // if ($(this).text() == "Pestaña 3") {
+                //     $(this).parent().siblings("section#sec3").show();
+                //     $("section#sec3").siblings("section").hide();
+                //     $(this).css("background", "darkblue").css("color","white");
+                //     $(this).siblings().css("background", "aqua").css("color","black");
+                // }
+
+            })
+        })
+    </script>
+</body>
+</html>

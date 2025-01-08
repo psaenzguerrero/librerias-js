@@ -16,13 +16,18 @@
             display: flex;
             flex-flow: wrap;
             justify-content: space-between;
+            align-items: center;
             p{
-                /* display: none; */
+                min-width: 100%;
+                display: none;
             }
             button{
+                min-width: 10%;
                 color: white;
                 background-color: cadetblue;
                 border-color: cadetblue;
+                padding: 10px;
+                font-size: 1.8rem;
             }
          }
         
@@ -128,19 +133,32 @@
         //     alert("hola");
         // }) 
 
-        //EJEMPLO
-        $(document).ready(function(){
-            
-            $("div:first-child button").on("click",function(){
-                $("div:first-child p").show(3000);
+        //EJEMPLO 1
+        // $(document).ready(function(){   
+        //     $("div:first-child button").on("click",function(){
+        //         $("div:first-child p").show(0);
+        //     })
+        //     $("div:nth-child(2) button").on("click",function(){
+        //         $("div:nth-child(2) p").show(3000);
+        //     })
+        //     $("div:nth-child(3) button").on("click",function(){
+        //         $("div:nth-child(3) p").show(3000);
+        //     })
+        // })
+        //EJEMPLO 1.v2
+        $(function () {
+            $("button").on("click",function(){
+                $(this).next().slideToggle(500);
+                
+                if ($(this).text() == "+") {
+                    $(this).text("-");
+                }else{
+                    $(this).text("+");
+                }
+                $(this).parent().siblings().children("p").hide(500);
+                $(this).parent().siblings().children("button").text("+");
             })
-            $("div:nth-child(2) button").on("click",function(){
-                $("div:nth-child(2) p").show(3000);
-            })
-            $("div:nth-child(3) button").on("click",function(){
-                $("div:nth-child(3) p").show(3000);
-            })
-        })
+        }); 
     </script>
 </body>
 </html>
