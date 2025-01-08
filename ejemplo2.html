@@ -52,7 +52,9 @@
         $("ul").siblings().hide();
         $(function () {  
             $("li").on("click",function () {
-                var pos = $(this).text().slice(-1);
+                // var pos = $(this).text().slice(-1);
+                var po = $(this).index();
+                var pos = po + 1;
                 console.log(pos);
                 $(this).parent().siblings("section#sec"+pos).show();
                 $("section#sec"+pos).siblings("section").hide();
