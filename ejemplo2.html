@@ -7,21 +7,25 @@
     <style>
         div{
             border: 1px solid rgb(0, 0, 0);
+            margin: auto;
+            width: 63%;
         }
         ul{
             display: flex;
+            justify-content: left;
             list-style: none;
             li{
                 margin: 5px;
-                padding: 50px 150px;
+                padding: 40px 90px;
                 border: 1px solid rgb(0, 0, 0);
-                background-color: aqua;
+                background-color: white;
                 color: black;
+                cursor: pointer;
             }
         }
         section{
-            margin: 10px;
-            padding: 40px;
+            margin: 40px;
+            padding: 30px;
             border: 1px solid rgb(0, 0, 0);
         }
     </style>
@@ -53,13 +57,13 @@
         $(function () {  
             $("li").on("click",function () {
                 // var pos = $(this).text().slice(-1);
-                var po = $(this).index();
-                var pos = po + 1;
-                console.log(pos);
-                $(this).parent().siblings("section#sec"+pos).show();
+                var pos = $(this).index()+1;
+
+                $("section#sec"+pos).show();
                 $("section#sec"+pos).siblings("section").hide();
-                $(this).css("background", "darkblue").css("color","white");
-                $(this).siblings().css("background", "aqua").css("color","black");
+
+                $(this).css("background", "slateblue").css("color","white");
+                $(this).siblings().css("background", "white").css("color","black");
 
                 // if ($(this).text().slice(-1) == "1") {
                 //     $(this).parent().siblings("section#sec1").show();
@@ -88,3 +92,5 @@
     </script>
 </body>
 </html>
+
+</body>
