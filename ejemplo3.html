@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .pr{
+            display: flex;
+            justify-content: space-around;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            border: 1px solid black;
+            h2{
+                font-size: 50px;
+                font-weight: bolder;
+            }
+        }
+        .container{
+            position: relative;
+        }
+        .circulo{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="pr">
+        <h2 class="t">Tiempo: <span>30</span> </h2>
+        <h2 class="a">Aciertos: <span>0</span> </h2>
+        <h2 class="f">Fallos: <span>0</span> </h2>
+    </div>
+    <div class="container">
+        <div class="circulo">
+
+        </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        var con = 0;
+        var con2 = 0;
+        var tempo = 30;
+        $(function () { 
+            var intervalo = setInterval(() => {
+                tempo = tempo-1;
+                $("h2.t").children().html(tempo);
+                var ancho =  Math.random()* $(window).width()-100;
+                var alto = Math.random()* $(window).height()-100;      
+                $("div.circulo").css({
+                    "top":alto+"px",
+                    "left":ancho+"px"
+                })
+                
+                if (tempo < 0) {
+                    clearInterval(intervalo)
+                    $(".circulo").hide();
+                    alert("Fin de la ronda");
+                }
+            }, 1500); 
+            
+            $("div.container").on("click",function () {
+                con2 = con2 +  1;
+                $(this).parent().siblings().children("h2.f").children().html(con2);
+            })    
+            
+            $("div.circulo").on("click",function () {
+                con = con +  1;
+                $(this).parent().siblings().children("h2.a").children().html(con);
+
+                var ancho =  Math.random()* $(window).width()-50;
+                var alto = Math.random()* $(window).height()-50;      
+
+                    $("div.circulo").css({
+                        "top":alto+"px",
+                        "left":ancho+"px"
+                    })
+            })
+             
+        })
+          
+    </script>
+</body>
+</html>
