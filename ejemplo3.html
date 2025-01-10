@@ -36,18 +36,16 @@
     <div class="pr">
         <h2 class="t">Tiempo: <span>30</span> </h2>
         <h2 class="a">Aciertos: <span>0</span> </h2>
-        <h2 class="f">Fallos: <span>0</span> </h2>
     </div>
-    <div class="container">
+    <!-- <div class="container"> -->
         <div class="circulo">
 
         </div>
-    </div>
+    <!-- </div> -->
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         var con = 0;
-        var con2 = 0;
         var tempo = 30;
         $(function () { 
             var intervalo = setInterval(() => {
@@ -64,20 +62,16 @@
                     clearInterval(intervalo)
                     $(".circulo").hide();
                     alert("Fin de la ronda");
+                    location.reload();
                 }
-            }, 1500); 
-            
-            $("div.container").on("click",function () {
-                con2 = con2 +  1;
-                $(this).parent().siblings().children("h2.f").children().html(con2);
-            })    
+            }, 1500);    
             
             $("div.circulo").on("click",function () {
                 con = con +  1;
                 $(this).parent().siblings().children("h2.a").children().html(con);
 
-                var ancho =  Math.random()* $(window).width()-50;
-                var alto = Math.random()* $(window).height()-50;      
+                var ancho =  Math.random()* $(window).width()-100;
+                var alto = Math.random()* $(window).height()-100;      
 
                     $("div.circulo").css({
                         "top":alto+"px",
