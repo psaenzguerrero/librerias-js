@@ -12,8 +12,8 @@
         .pr{
             display: flex;
             justify-content: space-around;
-            padding-top: 30px;
-            padding-bottom: 30px;
+            padding-top: 20px;
+            padding-bottom: 20px;
             margin-bottom: 100px;
             border: 1px solid black;
             h2{
@@ -26,9 +26,15 @@
             justify-content: center;
             flex-flow: column;
         }
+        h1{
+            text-align: center;
+            padding: 40px;
+        }
         .container{
             position: relative;
-            height: 500px;
+            margin-left: 300px;
+            margin-right: 300px;
+            height: 600px;
             width: 1300px;
         }
         .circulo{
@@ -37,7 +43,7 @@
             height: 85px;
             border-radius: 50%;
             background-image: url(./gato.png );
-            background-position: center;
+            background-position: center; 
             background-repeat: no-repeat;
         }
     </style>
@@ -64,10 +70,13 @@
                 $("h2.t").children().html(tempo);
                 var ancho =  Math.random()* $(".container").width()-100;
                 var alto = Math.random()* $(".container").height()-100;      
-                $("div.circulo").css({
+                $("div.circulo").css({ 
                     "top":alto+"px",
-                    "left":ancho+"px"
-                })
+                    "left":ancho+"px",
+                    "background-image": "url(./gato.png )",
+                    "width": 85+"px",
+                    "height": 85+"px"
+                });
                 
                 if (tempo < 0) {
                     clearInterval(intervalo)
@@ -80,14 +89,17 @@
             $("div.circulo").on("click",function () {
                 con = con +  1;
                 $(this).parent().siblings().children("h2.a").children().html(con);
-
-                var ancho =  Math.random()* $(window).width()-100;
-                var alto = Math.random()* $(window).height()-100;      
+                // var ancho =  Math.random()* $(".container").width()-100;
+                // var alto = Math.random()* $(".container").height()-100;       
 
                     $("div.circulo").css({
-                        "top":alto+"px",
-                        "left":ancho+"px"
-                    })
+                        "background-image": "url(./explosion.png )",
+                        "width": 85+"px",
+                        "height": 85+"px",
+                        // "top":alto+"px",
+                        // "left":ancho+"px"
+                        
+                    });
             })
              
         })
