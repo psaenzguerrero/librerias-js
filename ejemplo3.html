@@ -14,34 +14,45 @@
             justify-content: space-around;
             padding-top: 30px;
             padding-bottom: 30px;
+            margin-bottom: 100px;
             border: 1px solid black;
             h2{
                 font-size: 50px;
                 font-weight: bolder;
             }
         }
+        body{
+            display: flex;
+            justify-content: center;
+            flex-flow: column;
+        }
         .container{
             position: relative;
+            height: 500px;
+            width: 1300px;
         }
         .circulo{
             position: absolute;
-            width: 50px;
-            height: 50px;
+            width: 85px;
+            height: 85px;
             border-radius: 50%;
-            background-color: black;
+            background-image: url(./gato.png );
+            background-position: center;
+            background-repeat: no-repeat;
         }
     </style>
 </head>
 <body>
+    <h1>ATRAPA AL GATO</h1>
     <div class="pr">
         <h2 class="t">Tiempo: <span>30</span> </h2>
         <h2 class="a">Aciertos: <span>0</span> </h2>
     </div>
-    <!-- <div class="container"> -->
+    <div class="container">
         <div class="circulo">
-
+ 
         </div>
-    <!-- </div> -->
+    </div>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
@@ -51,8 +62,8 @@
             var intervalo = setInterval(() => {
                 tempo = tempo-1;
                 $("h2.t").children().html(tempo);
-                var ancho =  Math.random()* $(window).width()-100;
-                var alto = Math.random()* $(window).height()-100;      
+                var ancho =  Math.random()* $(".container").width()-100;
+                var alto = Math.random()* $(".container").height()-100;      
                 $("div.circulo").css({
                     "top":alto+"px",
                     "left":ancho+"px"
